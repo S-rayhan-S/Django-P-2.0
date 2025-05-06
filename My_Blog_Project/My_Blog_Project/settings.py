@@ -39,7 +39,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'App_Blog',
     'App_Login',
+    
+     "crispy_forms",
+    "crispy_tailwind",
+    'django_cleanup.apps.CleanupConfig',
 ]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+
+CRISPY_TEMPLATE_PACK = "tailwind"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -127,6 +135,10 @@ MEDIA_URL = '/media/'
 
 # Specify the directory where media files are stored
 MEDIA_ROOT = BASE_DIR / 'media'
+
+LOGIN_URL = "/account/login"
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 

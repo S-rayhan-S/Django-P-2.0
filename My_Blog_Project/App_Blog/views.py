@@ -26,7 +26,11 @@ class CreateBlog(CreateView):
         return super().form_valid(form)
 
 
-
+class BlogList(ListView):
+    context_object_name='blogs'
+    model=Blog
+    template_name='App_Blog/blog_list.html'
+    queryset=Blog.objects.order_by('-publish_date')
 
 
 

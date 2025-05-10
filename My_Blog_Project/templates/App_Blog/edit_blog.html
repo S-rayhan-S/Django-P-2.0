@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load tailwind_filters %}
+
+{% block title_block %}Edit: {{ blog.blog_title }}{% endblock %}
+
+{% block body_block %}
+<div class="max-w-3xl mx-auto p-6">
+  {% if blog.author == user %}
+    <h1 class="text-2xl font-bold mb-6">Edit Blog Post</h1>
+    <form method="POST" enctype="multipart/form-data" class="space-y-4">
+      {{ form|crispy }}
+      {% csrf_token %}
+      
+      <div class="flex gap-3">
+        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded transition">
+          Update Post
+        </button>
+        <a href="{% url 'App_Blog:blog_details' slug=blog.slug %}" 
+           class="bg-gray-200 hover:bg-gray-300 text-gray-800 py-2 px-6 rounded transition">
+          Cancel
+        </a>
+      </div>
+    </form>
+  {% else %}
+    <div class="text-center p-8">
+      <h2 class="text-xl font-medium text-gray-700 mb-2">Access Denied</h2>
+      <p class="text-gray-500">You don't have permission to edit this post.</p>
+      <a href="{% url 'App_Blog:blog_list' %}" 
+         class="inline-block mt-4 text-blue-600 hover:text-blue-800">
+        Return to blog list
+      </a>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

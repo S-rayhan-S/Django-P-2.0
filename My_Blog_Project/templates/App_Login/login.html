@@ -1,35 +1,30 @@
-
 {% extends "base.html" %}
 {% load tailwind_filters %}
 
-
-{% block title_block %}Login{% endblock title_block %}
+{% block title_block %}Login{% endblock %}
 
 {% block body_block %}
-        <h2>Login: </h2>
-        <form method='POST'>
-            {{form|crispy}}
-            {% csrf_token %}
-            
-            <button type='submit' class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Login
-              </button>
-        </form>
-
-        <p>Don't have an account? <a href="{% url 'App_Login:signup' %}">Signup Here</a></p>
+<div class="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md mt-10">
+  <h2 class="text-2xl font-bold mb-6 text-center">Welcome Back</h2>
+  
+  <form method="POST" class="space-y-4">
+    {{ form|crispy }}
+    {% csrf_token %}
     
-    
+    <button type="submit" 
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition">
+      Login
+    </button>
 
-{% endblock body_block %}
-
-
-
-
-
-
-
-
-
-
-
-
+    <div class="text-center mt-4 text-sm">
+      <p class="text-gray-600">Don't have an account? 
+        <a href="{% url 'App_Login:signup' %}" 
+           class="text-blue-600 hover:text-blue-800 font-medium">
+          Sign up here
+        </a>
+      </p>
+      
+    </div>
+  </form>
+</div>
+{% endblock %}

@@ -1,41 +1,46 @@
-
 {% extends "base.html" %}
 {% load tailwind_filters %}
 
-
-{% block title_block %}Create New Account{% endblock title_block %}
+{% block title_block %}Create Account{% endblock %}
 
 {% block body_block %}
-    {% if registered %}
-        <div> Account Created Succssfully!
-            <a href="{% url 'App_Login:login' %}">Login Here</a>
-        </div>
+<div class="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md mt-8">
+  {% if registered %}
+    <!-- Success Message -->
+    <div class="text-center p-6">
+      <div class="text-green-500 text-2xl mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      </div>
+      <h2 class="text-xl font-bold mb-2">Account Created Successfully!</h2>
+      <p class="mb-4">You can now log in to your new account.</p>
+      <a href="{% url 'App_Login:login' %}" 
+         class="inline-block bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-md transition-colors">
+        Login Here
+      </a>
+    </div>
+  {% else %}
+    <!-- Registration Form -->
+    <h2 class="text-2xl font-bold mb-6 text-center">Create New Account</h2>
+    <form method="POST" class="space-y-4">
+      {{ form|crispy }}
+      {% csrf_token %}
+      
+      <button type="submit" 
+              class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md transition-colors">
+        Create Account
+      </button>
+    </form>
 
-    {% else %}
-        <h2>Create New Account:</h2>
-        <form method='POST'>
-            {{form|crispy}}
-            {% csrf_token %}
-            
-            <button type='submit' class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Create Account
-              </button>
-        </form>
-
-        <p>Already have an account? <a href="{% url 'App_Login:login' %}">Login Here</a></p>
-    
-    {% endif %}
-
-{% endblock body_block %}
-
-
-
-
-
-
-
-
-
-
-
-
+    <div class="mt-4 text-center text-sm">
+      <p class="text-gray-600">Already have an account? 
+        <a href="{% url 'App_Login:login' %}" 
+           class="text-blue-600 hover:text-blue-800 font-medium">
+          Login Here
+        </a>
+      </p>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

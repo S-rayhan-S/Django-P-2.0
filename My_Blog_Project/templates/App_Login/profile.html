@@ -1,35 +1,48 @@
 {% extends "base.html" %}
-{% block title_block %}Profile{% endblock title_block %}
+{% block title_block %}{{user.username}}'s Profile{% endblock %}
 
 {% block body_block %}
-
-    <h1>Your Profile</h1>
-    {% if  user.user_profile%}
-        <img src="/media/{{user.user_profile.profile_pic}}" alt="">
-    {% else %}
-    <img src="/media/profile_pics/male_avatar.jpg" alt="">
-    {% endif %}
-    <button class="bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">   <a href="{% url "App_Login:add_pro_pic" %}">Change Profile Pic</a> </button>
-
-    <p>Username:{{user.username}}</p>
-    <p>Email:{{user.email}}</p>
-    <p>Name:{{user.first_name}} {{user.last_name}}</p>
-
-    <div>
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">   <a href="{% url 'App_Login:user-change' %}">Change Profile Info</a> </button>
+<div class="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md mt-8">
+  <div class="flex flex-col md:flex-row gap-8 items-center">
+    <!-- Profile Picture Section -->
+    <div class="text-center">
+      {% if user.user_profile %}
+        <img src="/media/{{user.user_profile.profile_pic}}" 
+             alt="Profile picture"
+             class="w-32 h-32 rounded-full object-cover border-4 border-gray-200">
+      {% else %}
+        <img src="/media/profile_pics/male_avatar.jpg" 
+             alt="Default profile"
+             class="w-32 h-32 rounded-full object-cover border-4 border-gray-200">
+      {% endif %}
+      <a href="{% url 'App_Login:add_pro_pic' %}" 
+         class="mt-4 inline-block bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md transition-colors">
+        Change Profile Picture
+      </a>
     </div>
 
-{% endblock body_block %}
+    <!-- Profile Info Section -->
+    <div class="flex-1">
+      <h1 class="text-2xl font-bold mb-4">Profile Information</h1>
+      <div class="space-y-3">
+        <p class="text-gray-700">
+          <span class="font-semibold">Username:</span> {{user.username}}
+        </p>
+        <p class="text-gray-700">
+          <span class="font-semibold">Email:</span> {{user.email}}
+        </p>
+        <p class="text-gray-700">
+          <span class="font-semibold">Name:</span> {{user.first_name}} {{user.last_name}}
+        </p>
+      </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
+      <div class="mt-6">
+        <a href="{% url 'App_Login:user-change' %}" 
+           class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md transition-colors">
+          Edit Profile Info
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

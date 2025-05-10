@@ -1,31 +1,26 @@
-
 {% extends "base.html" %}
 {% load tailwind_filters %}
 
-
-{% block title_block %}Change Profile Info{% endblock title_block %}
+{% block title_block %}Update Profile{% endblock %}
 
 {% block body_block %}
+<div class="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md mt-8">
+  <h2 class="text-2xl font-bold mb-6 text-center">Update Your Profile</h2>
+  
+  <form method="POST" class="space-y-4">
+    {{ form|crispy }}
+    {% csrf_token %}
     
-        <form method='POST'>
-            {{form|crispy}}
-            {% csrf_token %}
-            
-            <button type='submit' class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Save Changes
-              </button>
-        </form>    
-
-{% endblock body_block %}
-
-
-
-
-
-
-
-
-
-
-
-
+    <div class="flex justify-between items-center mt-6">
+      <a href="{% url 'App_Login:profile' %}" 
+         class="text-gray-600 hover:text-gray-800 text-sm">
+        ← Back to profile
+      </a>
+      <button type="submit" 
+              class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded transition">
+        Save Changes
+      </button>
+    </div>
+  </form>
+</div>
+{% endblock %}

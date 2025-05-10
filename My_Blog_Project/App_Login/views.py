@@ -110,3 +110,19 @@ def add_pro_pic(request):
         'profile_pic_exists': profile_pic is not None
     }
     return render(request,'App_Login/pro_pic_add.html',context=context)
+
+
+def guest_login(request):
+    # Authenticate with pre-created guest credentials
+    user = authenticate(username='guest_user', password='guestpass123')
+    if user:
+        login(request, user)
+    return redirect('index')  # Redirect to home page after login
+
+
+
+
+
+
+
+

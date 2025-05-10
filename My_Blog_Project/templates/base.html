@@ -78,7 +78,7 @@
                                 <a href="{% url 'App_Blog:create_blog' %}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem">Write Blog</a>
                                 <a href="{% url 'App_Blog:my_blogs' %}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem">My Blogs</a>
                                 <a href="{% url 'App_Login:profile' %}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem">Profile</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem">Sign out</a>
+                                <a href="{% url 'App_Login:logout' %}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem">Sign out</a>
                             {% else %}
                                 <a href="{% url 'App_Login:signup' %}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem">Sign up</a>
                                 <a href="{% url 'App_Login:login' %}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem">Login</a>

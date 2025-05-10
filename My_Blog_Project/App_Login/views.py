@@ -40,7 +40,7 @@ def login_page(request):
     }
     return render(request,'App_Login/login.html',context=context)
 
-
+@login_required
 def logout_user(request):
     if not request.user.is_authenticated: 
         return redirect('index')

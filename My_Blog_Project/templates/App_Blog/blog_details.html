@@ -57,9 +57,9 @@
             <span class="text-xs text-gray-500">{{comment.comment_date}}</span>
           </div>
           <p class="text-gray-700">{{comment.comment}}</p>
-          {% if comment.user == request.user %}
+          {% comment %} {% if comment.user == request.user %}
           <a href="#" class="text-xs text-red-500 hover:text-red-700">Delete</a>
-          {% endif %}
+          {% endif %} {% endcomment %}
         </div>
         {% empty %}
         <p class="text-gray-500">No comments yet.</p>

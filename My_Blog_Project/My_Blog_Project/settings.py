@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-w+12+(%p-c)u&fn+ce!_z1ca^j$p+u#l-c4t&5*%u$w_3py)95
 DEBUG = True
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['my-blog-project-bs8c.onrender.com']
+ALLOWED_HOSTS = ['my-blog-project-bs8c.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -116,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Dhaka'
 
 USE_I18N = True
 

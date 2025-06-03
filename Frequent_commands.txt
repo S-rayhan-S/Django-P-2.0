@@ -1,0 +1,124 @@
+# Github Upload:
+git status
+git add . or git add filename.py
+git add My_Ecom_Project/ 
+git commit -m "Updated Message"
+    git push origin main  
+    # Or master, depending on your branch
+    OR 
+    git push origin your-branch-name
+
+# Git For Social Project
+git add My_Social_Project/
+git commit -m "msg"
+git push origin main
+ 
+
+env/Scripts/Activate.ps1
+cd My_Blog_Project
+py manage.py runserver
+
+test:
+    super_user_blog_project:root
+    mail: s.rayhansiddikey@gmail.com
+    pass:1234
+
+    py manage.py test
+    s.rayhansiddikey@gmail.com
+    12345678!
+    user: test_user_1, 2,3
+    pass:1
+
+    username='guest_user',
+    password='guestpass123',
+    email='guest@example.com'
+
+## to gen requirements.txt file
+    pip freeze > requirements.txt
+    pip install -r requirements.txt
+
+    
+#to access admin pannel of burger builder backend
+ py manage.py createsuperuser
+ user:root
+ mail: labaraab@gmail.com
+ pass:1234
+
+migrate:
+python manage.py makemigrations
+python manage.py migrate
+
+create  super user:
+py manage.py createsuperuser
+
+
+
+
+
+.venv/Scripts/Activate.ps1
+cd My_Blog_Project
+py manage.py runserver
+user: test_user2,test_user3
+pass:12345678!
+
+
+
+
+
+
+
+
+py manage.py migrate
+py manage.py makemigrations first_app
+py manage.py migrate
+
+###imports
+from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+py manage.py shell
+
+
+ pip install mysqlclient
+ user: root pass: 1234
+ CREATE USER 'pmauser'@'%' IDENTIFIED BY '1234';
+
+ $cfg['Servers'][$i]['auth_type'] = 'config';
+$cfg['Servers'][$i]['user'] = 'root';
+$cfg['Servers'][$i]['password'] = '';
+$cfg['Servers'][$i]['extension'] = 'mysqli';
+$cfg['Servers'][$i]['AllowNoPassword'] = true;
+$cfg['Lang'] = '';
+
+user hp
+pass:1234!@#$
+mysql -u root -p
+
+ALTER USER 'root'@'localhost' IDENTIFIED BY 1234
+GRANT ALL PRIVILEGES ON your_database_name.* TO 'root'@'localhost'
+FLUSH PRIVILEGES
+
+
+
+
+musician = Musician.objects.create(first_name="Wlter", last_name="White", instrument="tar")
+musician = Musician.objects.create(first_name="Laiana", last_name="Mormount", instrument="North")
